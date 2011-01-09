@@ -23,7 +23,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: timesheets_production
+  database: yfbppyrrgz
   pool: 5
   username: root
   password: 
