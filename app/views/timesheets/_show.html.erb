@@ -1,0 +1,17 @@
+<h1 class="dialog_header">View Timesheet</h1>
+
+
+Current Status: <%=status_display(@timesheet.status)%>
+<%=render :partial=>"timesheets/timesheet"%>
+
+<hr/>
+
+<%if @timesheet.status != 2%>
+<%#= button_to 'Edit', edit_timesheet_path(@timesheet), :method=>:get, :class=>"button inline-left" %>
+<%#=render :partial=>"common/button", :locals=>{:title=>"Edit", :link=>edit_timesheet_path(@timesheet), :custom_class=>"inline-left"}%>
+<%=render :partial=>"common/remote_button", :locals=>{:label=>"Edit",
+          :remote_function=>remote_function(:url=>edit_timesheet_path(@timesheet), :method=>:get)}%>
+
+<%end%>
+<%#= button_to 'Back to Timesheets', timesheets_path, :method=>:get, :class=>"button inline-left" %>
+<%=render :partial=>"common/close_button"%>

@@ -1,0 +1,17 @@
+
+<%
+case status
+when 0
+%>
+<span style="color:#000000;font-weight:bolder;"><%=status_display(status)%></span>
+<%
+when 1
+%>
+<span style="color:#C00000;font-weight:bolder;"><%=status_display(status)%></span>
+<%
+when 2
+%>
+<span style="color:#07AF07;font-weight:bolder;"><%=status_display(status)%></span>
+<%
+end
+%>

@@ -1,0 +1,145 @@
+/* 
+    Document   : timecard
+    Created on : Nov 26, 2010, 7:27:05 PM
+    Author     : kevin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#admin_timesheets {
+    /*border: 2px solid #000000;*/
+    /*width: 800px;*/
+    width: 100%;
+    /*height: 200px;*/
+    padding: 0px;
+}
+
+#admin_timesheets .tr:first-child .td{
+    color: white;
+    padding-top: 6px;
+    font-weight: bolder;
+    background-color: #0022FF;
+    text-align: center;
+    height: 22px;
+    font: 12pt verdana;
+}
+
+#admin_timesheets .tr .td{
+    float:left;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    border-right: 1px dotted #000000;
+    border-bottom: 1px dashed #000000;
+    font: 12pt verdana;
+    padding: 6px 2px 2px 2px;
+    width: 15%;
+    height: 24px;
+}
+
+#admin_timesheets .tr .td:nth-child(1){
+    border-left: 1px dotted #000000;
+    width: 26%;
+}
+
+#admin_timesheets .tr .td:nth-child(5){
+    width: 26%;
+    padding: 0px 2px 8px 2px;
+}
+
+
+
+#timesheets {
+    /*border: 2px solid #000000;*/
+    width: 800px;
+    /*height: 200px;*/
+    padding: 10px;
+}
+/*
+#timesheets .tr:first-child .td{
+    color: white;
+    padding-top: 6px;
+    font-weight: bolder;
+    background-color: #0022FF;
+    text-align: center;
+    height: 22px;
+    font-size: 10pt;
+}
+*/
+#timesheets .tr .td{
+    float:left;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    /*border-right: 1px dotted #000000;*/
+    border-bottom: 1px dashed #000000;
+    /*font: 10pt verdana;*/
+    padding: 6px 2px 0px 2px;
+    width: 400px;
+    height: 32px;
+}
+
+#timesheets .tr .td:nth-child(2){
+    /*border-right: 1px dotted #000000;*/
+    width: 140px;
+}
+/*
+#timesheets .tr .td:nth-child(4){
+    width: 240px;
+}*/
+#timesheets .title{
+    font-weight: bolder;
+    font-size: 13pt;
+}
+#timesheets .status{
+    font-size: 10pt;
+    padding-left: 10px;
+}
+
+.timecard {
+    /*border: 2px solid #000000;*/
+    width: 800px;
+    /*height: 200px;*/
+    padding: 10px;
+}
+
+.timecard .date {
+    background-color: #FFFFEE;
+    border: 0px solid #CCCCFF;
+}
+
+.timecard input {
+    /*border: 1px solid #0022FF;*/
+}
+
+.timecard .tr:first-child .td{
+    color: white;
+    padding-top: 6px;
+    font-weight: bolder;
+    background-color: #0022FF;
+    text-align: center;
+}
+
+.timecard .tr .td{
+    float:left;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    border-right: 1px dotted #000000;
+    border-bottom: 1px dashed #000000;
+    font: 10pt verdana;
+    padding: 2px;
+    width: 86px;
+    height: 22px;
+}
+
+.timecard .tr .td:nth-child(1){
+    border-left: 1px dotted #000000;
+    width: 175px;
+}
+
+.timecard .tr .td:nth-child(2){
+    width: 300px;
+}

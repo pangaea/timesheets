@@ -1,0 +1,24 @@
+<h1 class="dialog_header">Change Timesheet Status</h1>
+
+<div style="width:840px">
+Current Status: <%=status_display(@timesheet.status)%>
+<div style="float:right;width:300px;">
+    <% form_for [:admin, @timesheet] do |f| %>
+    <div style="float:left;">
+    <%= f.submit 'Change Status', :class=>"button inline-left ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" %>
+    </div>
+    <div style="float:left;padding-top:5px;">
+     to <%= select( "timesheet", "status", { "Pending" => "0", "Rejected" => "1", "Approved" => "2"}) %>
+    </div>
+    <% end %>
+</div>
+</div>
+
+<div style="clear:both;"></div>
+
+<%=render :partial=>"timesheets/timesheet"%>
+
+<div style="float:left;">
+<%=render :partial=>"common/close_button"%>
+</div>
+

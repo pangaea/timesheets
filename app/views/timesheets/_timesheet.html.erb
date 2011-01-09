@@ -1,0 +1,44 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+
+<div class="timecard">
+
+    <div class="tr">
+        <div class="td" style="width:175px;border-left:1px dotted #000000;">Date</div>
+        <div class="td" style="width:300px;">Location</div>
+        <div class="td">Start Time</div>
+        <div class="td">End Time</div>
+        <div class="td">Total Hours</div>
+    </div>
+    <div style="clear:left;"></div>
+
+    <% @timesheet.timesheet_days.each do |day| %>
+    <div class="tr">
+        <div class="td" style="border-left:1px dotted #000000;width:175px;">
+            <%=convert_to_us_date_string(day.date_worked)%>
+            <strong>(<%=write_weekday(day.date_worked)%>)</strong>
+        </div>
+        <div class="td" style="width:300px;"><%=h day.location%></div>
+        <div class="td">
+        <% unless day.begin_time_in_minutes.blank? %>
+            <%=convert_to_time_string(day.begin_time_in_minutes)%>
+        <% end %>
+        </div>
+        <div class="td">
+        <% unless day.end_time_in_minutes.blank? %>
+            <%=convert_to_time_string(day.end_time_in_minutes)%>
+        <% end %>
+        </div>
+        <div class="td">
+        <% unless day.total_time_in_minutes.blank? %>
+            <%=convert_to_hours_string(day.total_time_in_minutes)%>
+        <% end %>
+        </div>
+    </div>
+    <div style="clear:left;"></div>
+    <% end %>
+
+</div>

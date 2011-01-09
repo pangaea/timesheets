@@ -1,0 +1,92 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<% form_for @timesheet, :html=>{:onsubmit=>"return buildForm();"} do |f| %>
+<%#= f.error_messages %>
+
+<div class="timecard">
+
+    <div class="tr">
+        <div class="td" style="border-left:1px dotted #000000;width:175px;"><%=t("timesheets.fields.date")%></div>
+        <div class="td" style="width:300px;"><%=t("timesheets.fields.location")%></div>
+        <div class="td"><%=t("timesheets.fields.start_time")%></div>
+        <div class="td"><%=t("timesheets.fields.end_time")%></div>
+        <div class="td"><%=t("timesheets.fields.total_hours")%></div>
+    </div>
+    <div style="clear:left;"></div>
+  <% i = 0 %>
+  <% f.fields_for :timesheet_days do |day| %>
+    <%= day.text_field :index, :style=>"display:none;" %>
+    <div class="tr">
+        <div class="td" style="border-left:1px dotted #000000;width:175px;">
+            <%= day.text_field :date_worked, :class=>"date", :style=>"width:78px;display:none;" %>
+            <%=convert_to_us_date_string(@timesheet.timesheet_days[i].date_worked)%>
+            (<%=write_weekday(@timesheet.timesheet_days[i].date_worked)%>)
+        </div>
+        <div class="td" style="width:300px;"><%= day.text_field :location, :style=>"width:290px" %></div>
+        <div class="td">
+            <%= day.text_field :begin_time_in_minutes, :style=>"display:none;" %>
+            <input type="text" class="time" style="width:78px;"/>
+        </div>
+        <div class="td">
+            <%= day.text_field :end_time_in_minutes, :style=>"display:none;" %>
+            <input type="text" class="time" style="width:78px;"/>
+        </div>
+        <div class="td">
+            <%= day.text_field :total_time_in_minutes, :style=>"display:none" %>
+            <input type="text" class="total" style="width:78px;"/>
+        </div>
+    </div>
+    <div style="clear:left;"></div>
+    <% i += 1 %>
+  <% end %>
+
+</div>
+
+<%= f.submit 'Save', :class=>"button inline-left ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" %>
+<div style="clear:left"/>
+<% end %>
+
+<script type="text/javascript">
+jQuery(".date").attr('readonly', true);
+jQuery(function(){
+    // Initialize 'time' fields
+    jQuery("input[id$=begin_time_in_minutes], input[id$=end_time_in_minutes]").each(function(){
+        var fld = jQuery(this).next();
+        if(fld.attr("class")=="time" || fld.attr("class")=="hasTimeEntry"){
+            if(jQuery(this).val().length>0) fld.val(convertToTimeString(parseInt(jQuery(this).val())));
+        }
+    });
+    // Initialize 'hours' field
+    jQuery("input[id$=total_time_in_minutes]").each(function(){
+        var fld = jQuery(this).next();
+        if(fld.attr("class")=="total"){
+            if(jQuery(this).val().length>0) fld.val(convertToHoursString(parseInt(jQuery(this).val())));
+        }
+    });
+    // Initialize controls
+    jQuery(".time").timeEntry();
+    jQuery('.total').numeric({allow:"."});
+})
+function buildForm(){
+    jQuery("input[id$=begin_time_in_minutes], input[id$=end_time_in_minutes]").each(function(){
+        var fld = jQuery(this).next().children("input:first-child");
+        if(fld.attr("class")=="time hasTimeEntry"){
+            if(fld.val().length>0){
+                jQuery(this).val(convertFromTimeString(fld.val()));
+            }
+        }
+    });
+    jQuery("input[id$=total_time_in_minutes]").each(function(){
+        var fld = jQuery(this).next();
+        if(fld.attr("class")=="total"){
+            if(fld.val().length>0){
+                jQuery(this).val(convertFromHoursString(fld.val()));
+            }
+        }
+    });
+    return true;
+}
+</script>

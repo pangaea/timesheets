@@ -1,0 +1,13 @@
+<h1 class="dialog_header">Edit Timesheet</h1>
+Current Status: <%=status_display(@timesheet.status)%>
+<%if @timesheet.status != 2%>
+<%=render :partial=>"form"%>
+<%end%>
+
+<hr/>
+
+<%#= button_to 'Cancel', timesheet_path(@timesheet), :method=>:get, :class=>"button inline-left" %>
+<%#=render :partial=>"common/button", :locals=>{:title=>"Cancel", :link=>timesheet_path(@timesheet), :custom_class=>"inline-left"}%>
+<%#= button_to 'Back to Timesheets', timesheets_path, :method=>:get, :class=>"button inline-left" %>
+<%#=render :partial=>"common/button", :locals=>{:title=>"Back to Timesheets", :link=>timesheets_path}%>
+<%=render :partial=>"common/close_button"%>

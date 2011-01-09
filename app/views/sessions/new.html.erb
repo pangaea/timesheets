@@ -1,0 +1,31 @@
+<h1 class="page_header">Login</h1>
+
+<fieldset>
+  <legend>Login</legend>
+
+  <% form_for @current_session do |f| %>
+
+  <% if @current_session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@current_session.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @current_session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <label for="session_name">Name</label><br />
+    <%= f.text_field :username %><br />
+
+    <label for="session_password">Password</label><br />
+    <%= f.password_field :password %><br />
+
+    <%= submit_tag "login", :class=>"button inline-left ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" %>
+
+  <% end %>
+
+</fieldset>
+

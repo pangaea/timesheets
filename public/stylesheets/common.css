@@ -1,0 +1,79 @@
+/* 
+    Document   : common
+    Created on : Dec 4, 2010, 2:53:29 AM
+    Author     : kevin
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body{
+    font-family: Verdana;
+    font-size: 10pt;
+    color: #777;
+}
+root { 
+    display: block;
+}
+
+.button{
+    margin: 4px;
+    /*font-family: Lucida Grande, Lucida Sans, Arial, sans-serif !important;*/
+    font-size: 8pt !important;
+}
+
+.remote_button{
+    padding:4px 10px 5px 10px;
+    font-size: 8pt !important;
+}
+
+h1.page_header{
+    /*width: 95%;*/
+    background-color: #1d5987;
+    color: #ffffff;
+    font: normal x-large Verdana;
+    text-align: left;
+    padding: 4px 10px 5px 10px;
+}
+
+h1.dialog_header{
+    /*width: 95%;*/
+    background-color: #1d5987;
+    color: #ffffff;
+    font: normal x-large Verdana;
+    text-align: left;
+    padding: 4px 10px 5px 10px;
+}
+
+.inline-left{
+    float:left;
+}
+
+.toolbar{
+}
+
+.toolbar .button{
+    float:left;
+}
+
+.heading_text{
+    font-weight: bolder;
+    font-size: 13pt;
+    font-family: Verdana;
+    margin-top: 4px;
+}
+
+#timesheet_user_id_ssWrapper{
+    position: absolute;
+    left: 430px;
+    z-index: 1000;
+}
+#status_ssWrapper{
+    position: absolute;
+    left: 79px;
+    z-index: 1000;
+}

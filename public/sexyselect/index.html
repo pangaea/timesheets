@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>jQuery - Sexy Select </title>
+    <!-- Requirements -->
+    <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.8.4.custom.min.js" type="text/javascript"></script>
+    <link href="css/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+    <script src="js/ui.sexyselect.0.4.js" type="text/javascript"></script>
+    
+    <!-- Sample None of the below is required-->
+    <script src="js/sample.js" type="text/javascript"></script>
+    <script src="js/shCore.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <script src="js/shBrushJScript.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#pretty_select').sexyselect();
+            $('#pretty_select2').sexyselect({ title: 'Custom Title', autoSort: true, allowInput: true });
+            $('#pretty_select3').sexyselect({ title: 'Advanced Title', onItemSelected: function (element, options) {
+                alert('Element Selected : ' + element.val() + ' is Checked?' + element.attr('checked'));
+            }, autoSort: false, allowInput: true, allowDebug: true, allowCollapse: false, selectionMode: 'multiple'
+            });
+        });
+    </script>
+    <style type="text/css">
+        .style1
+        {
+            font-size: small;
+        }
+        .style2
+        {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h3>jQuery SexySelect v. 0.3</h3>
+        <strong>Author : </strong>Nico VanHaaster
+        <strong>Updated: 23/11/2010</strong>
+        <br />
+        <p>
+            The jQuery SexySelect is a simple plugin written for educational purposes to allow for easier (and frankly prettier) manipulation of Single or Multiple select boxes. <br /><br />
+            This plugin will only work with select boxes and no other element types.<br /><br />
+            <strong>Turn this</strong><br />
+            <select size="4" id="uglyselect">
+                <option value="Value 1">Value 1</option>
+                <option value="Value 1">Value 2</option>
+                <option value="Value 1">Value 3</option>
+                <option value="Value 1">Value 4</option>
+                <option value="Value 1">Value 5</option>
+            </select>
+            <br />
+            <strong>Into</strong><br />
+            <select size="4" id="pretty_select">
+                <option value="Value 1">Value 1</option>
+                <option value="Value 1">Value 2</option>
+                <option value="Value 1">Value 3</option>
+                <option value="Value 1">Value 4</option>
+                <option value="Value 1">Value 5</option>
+            </select>
+            <br />
+            <a class="sample" href="javascript:;" onclick="toggleSample($('#first_sample'),$(this));">show sample</a>
+            <pre id="first_sample" xt="sample">
+                <script type="syntaxhighlighter" class="brush: js"><![CDATA[
+                  $('#pretty_select').sexyselect();
+                ]]></script>
+            </pre>
+        </p>
+        <h4>Features</h4>
+        <ul>
+            <li>
+                Skinned using jQuery UI themes 1.8.6+
+            </li>
+            <li>
+                Collapsable select region
+            </li>
+            <li>
+                Allow user to add & remove options
+            </li>
+            <li>
+                Single, Multiple & No Selection modes
+            </li>
+            <li>
+                Auto Sorting
+            </li>
+            <li>
+                Drag & Drop Sorting (with Auto Sorting disabled)
+            </li>
+            <li>
+                Events On Item Creation & Items Syncronization
+            </li>
+            <li>
+                Custom Header Text
+            </li>
+            <li>
+                Simple item count & validation methods
+            </li>
+            <li>
+                Watermark Entry Text
+            </li>
+            <li>
+                Custom CSS Styles such as height, width, and background display.
+            </li>
+        </ul>
+        <h4 id="s1">Sample 1: Allow User Entry with Auto Sort (no drag drop) and custom title</h4>
+            <p>
+                In the below sample you will notice that Auto Sort is on which has now sorted the items alphabetically and also disabled the Drag & Drop sorting features. Additionally the User input bar to allow
+                the user to add a new option appears and a custom title is displayed.
+            </p>
+            <select size="4" id="pretty_select2">
+                <option value="Value 1">Value 1</option>
+                <option value="Value 1">Value 2</option>
+                <option value="Value 1">Value 3</option>
+                <option value="Value 1">Value 4</option>
+                <option value="Value 1">Value 5</option>
+            </select>
+            <br />
+            <a class="sample" href="javascript:;" onclick="toggleSample($('#second_sample'),$(this));">show sample</a>
+            <pre id="second_sample" xt="sample">
+                <script type="syntaxhighlighter" class="brush: js"><![CDATA[
+                  $('#pretty_select2').sexyselect({ title: 'Custom Title', autoSort: true, allowInput: true });
+                ]]></script>
+            </pre>
+        <h4 id="s2">Sample 2: (DEBUG) Multiple Selection Mode (no collapse, with autosort off, 
+            alert on item selected)</h4>
+        <p>
+            The sample below has Multiple selection turned on and also has the ability to collapse the element and the autosort off. This will allow users to select multiple options and allow for drag and drop sorting. For added benifit I have enabled debug mode to show
+            the original item. 
+        </p>
+        <select size="4" id="pretty_select3">
+            <option value="Value 1">Value 1</option>
+            <option value="Value 1">Value 2</option>
+            <option value="Value 1">Value 3</option>
+            <option value="Value 1">Value 4</option>
+            <option value="Value 1">Value 5</option>
+        </select>
+        <a href="javascript:;" onclick="selectValue();">Select value 3 via Javascript version 0.4+</a><br />
+        <a href="javascript:;" onclick="selectValue3();">Toggle Value 3 selection via Javascript version 0.4+</a><br />
+        <a href="javascript:;" onclick="selectValue2();">Select value 2 via Javascript version 0.3</a><br />
+        <a class="sample" href="javascript:;" onclick="toggleSample($('#third_sample'),$(this));">show sample</a>
+        <pre id="third_sample" xt="sample">
+            <script type="syntaxhighlighter" class="brush: js"><![CDATA[
+                $('#pretty_select3').sexyselect({ title: 'Advanced Title', autoSort: false, 
+                                                allowInput: true,onItemSelected: function(element,options) { alert(element.val());}, allowDebug:true,allowCollapse:false,selectionMode:'multiple' });
+            ]]>
+            </script>
+        </pre>
+        <br /><br />
+        
+        <div style="width:90%" id="u1">
+            <div id="tabs">
+                <ul>
+                    <li>
+                        <a href="#tabs-1">Options</a>
+                    </li>
+                    <li>
+                        <a href="#tabs-2">Methods</a></li>
+                    <li>
+                        <a href="#tabs-3">Events</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <div style="margin:10px">
+                        <h4>Options</h4>
+                        <p>
+                            The sexy select can be initialized with the following options. (note: case sensitive)<br />
+                            <span id="opt_span">
+                                <pre ><script type="syntaxhighlighter" class="brush: js"><![CDATA[
+                                 $('#element_id').sexyselect({ optionName : optionValue;});
+                                 ]]></script>
+                                </pre>
+                            </span>
+                        </p>
+                    </div>
+                    <table cellpadding="3" cellspacing="0" rules="all" style="width:90%;margin:10px">
+                        <tr>
+                            <th>
+                                Option Name
+                            </th>
+                            <th>
+                                Possible Values
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>width</td>
+                            <td>
+                                Any width equivilant value
+                                <br />
+                                default: 230 <span class="style1">(note any value &lt;150 will be set to 150)</span></td>
+                            <td>
+                                Sets the width of the entire select container.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>height</td>
+                            <td>
+                                Any height equivilant value
+                                <br />
+                                default: 200</td>
+                            <td>
+                                Sets the height of the entire select container
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>background</td>
+                            <td>
+                                CSS equivilant to the containers background<br />
+                                default: #fff</td>
+                            <td>
+                                Sets the background CSS of the entire container</td>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>
+                                Any text to be displayed as the title bar text.<br />
+                                default: Multi-Select</td>
+                            <td>
+                                Sets the title bar text</td>
+                        </tr>
+                        <tr>
+                            <td>showTitle</td>
+                            <td>
+                                boolean : true\false<br />
+                                default: true</td>
+                            <td>
+                                Allows you to show or hide the Title bar, this will also hide the collapse 
+                                feature</td>
+                        </tr>
+                        <tr>
+                            <td>allowInput</td>
+                            <td>
+                                boolean : true\false<br />
+                                default: true</td>
+                            <td>
+                                Allows you to show\hide the add new option input bar.</td>
+                        </tr>
+                        <tr>
+                            <td>addValueMaxLength</td>
+                            <td>
+                                int<br />
+                                default:50</td>
+                            <td>
+                                Sets the maximum length of the add new option input control. This can be set to 
+                                any int value</td>
+                        </tr>
+                        <tr>
+                            <td>defaultInputText</td>
+                            <td>
+                                text<br />
+                                default: &#39;add new option&#39;</td>
+                            <td>
+                                Sets the watermark text of the add new option value. This text is displayed when 
+                                the new option input control has lost focus with a blank value</td>
+                        </tr>
+                        <tr>
+                            <td>autoSort</td>
+                            <td>
+                                boolean: true\false<br />
+                                default: false</td>
+                            <td>
+                                Automatically sorts the list to be in alphabetical order. If the autosort is set 
+                                to true the sortable drag &amp; drop features are disabled.</td>
+                        </tr>
+                        <tr>
+                            <td>minSize</td>
+                            <td>
+                                int<br />
+                                default: 0</td>
+                            <td>
+                                Sets the minimum size option for the validation method. This is used when the 
+                                validation method is called, see the validation method</td>
+                        </tr>
+                        <tr>
+                            <td>autoExpand</td>
+                            <td>
+                                boolean : true\false<br />
+                                default: false</td>
+                            <td>
+                                <span class="style2">Currently not used</span>, will be used in future releases 
+                                to make the select box increase and decrease as items are added\removed</td>
+                        </tr>
+                        <tr>
+                            <td>allowDelete</td>
+                            <td>
+                                boolean: true\false<br />
+                                default: true</td>
+                            <td>
+                                Allows the delete icon to appear and the user to remove the selected item.</td>
+                        </tr>
+                        <tr>
+                            <td>allowCollapse</td>
+                            <td>
+                                boolean: true\false<br />
+                                default: true</td>
+                            <td>
+                                Allows the container (minus the title) to expand \ contract with clicking the 
+                                title bar. If the option &#39;showTitle&#39; is set to false this option will be skipped</td>
+                        </tr>
+                        <tr>
+                            <td>selectionMode</td>
+                            <td>
+                                values:
+                                <ul>
+                                    <li>none</li>
+                                    <li>single</li>
+                                    <li>multiple</li>
+                                </ul>
+                                default: none
+                            </td>
+                            <td>
+                                The three states drastically change the functionality of the list. 
+                                <br />
+            &nbsp;- none : Removes the ability to select any items. Nicely used for sorting, adding &amp; deleting 
+                                items<br />
+            &nbsp;- single : Shows radio buttons and allows for single selection<br />
+            &nbsp;- multiple: Shows checkboxes and allows for multiple item select<br />
+                                Note that if the &lt;select&gt; element has the attribute &#39;multiple&#39; and the 
+                                selectionMode is set to none then the selectionMode will be overwritten to 
+                                multiple<br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>expanded</td>
+                            <td>
+                                boolean: true\false<br />
+                                default: true</td>
+                            <td>
+                                Allows you to initilize the widget in expanded or 
+                                collapsed state. Setting expanded to false will start the control collapsed</td>
+                        </tr>
+                        <tr>
+                            <td>allowDebug</td>
+                            <td>
+                                boolean:true\false<br />
+                                default:false</td>
+                            <td>
+                                Used only to debug, will display both the widget and the original select element</td>
+                        </tr>
+                        <tr>
+                            <td>nooptionstext</td>
+                            <td>
+                                string<br />
+                                default: &#39;no options added...&#39;</td>
+                            <td>
+                                Sets the no options text when there are no options added to the list</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tabs-2">
+                    <div style="margin:10px">
+                        <h4>Methods</h4>
+                    </div>
+                    <table cellpadding="3" cellspacing="0" rules="all" style="width:90%;margin:10px">
+                        <tr>
+                            <th>
+                                Method Name</th>
+                            <th>
+                                Sample</th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>searchItem</td>
+                            <td>alert($(&#39;#element&#39;).sexyselect(&#39;searchItem&#39;,&#39;Value1&#39;))<br />
+                                <a href="javascript:j" onclick="searchSample();">try 
+                                sample</a></td>
+                            <td>Allows searching of all the options already added and returns true or false with 
+                                the item found.</td>
+                        </tr>
+                        <tr>
+                            <td>destroy</td>
+                            <td>$(&#39;element&#39;).sexyselect(&#39;destroy&#39;);</td>
+                            <td>Destroys the widget and removes it from the DOM</td>
+                        </tr>
+                        <tr>
+                            <td>validateSize</td>
+                            <td>alert($(&#39;element&#39;).sexyselect(&#39;validateSize&#39;)<br />
+                                <a href="javascript:;" onclick="tryValidSample()">try sample</a></td>
+                            <td>Returns true or false if the minSize of the list is met. See minSize option for 
+                                its description.</td>
+                        </tr>
+                        <tr>
+                            <td>totalItems</td>
+                            <td>alert($(&#39;element&#39;).sexyselect(&#39;totalItems&#39;))<br />
+                                <a href="javascript:;" onclick="tryTotalItems()">try sample</a></td>
+                            <td>Returns the total count of all the options in the select list (including added 
+                                items)</td>
+                        </tr>
+                        <tr>
+                            <td>showError</td>
+                            <td>$(&#39;#element&#39;).sexyselect(&#39;showError&#39;,&#39;This is text&#39;,2500)</td>
+                            <td>Shows the error message bar with your custom set Text and Timeout. </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tabs-3">
+                    <h4>Events</h4>
+                    <table cellpadding="3" cellspacing="0" rules="all" style="width:90%;margin:10px">
+                        <tr>
+                            <th>
+                                Event Name</th>
+                            <th>
+                                Sample</th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>onitemcreated</td>
+                            <td>
+                                $(&#39;#element&#39;).sexyselect({ onitemcreated: function(newOption,initElem){ .... });</td>
+                            <td>
+                                This event is fired after each element is created and returns both the new 
+                                option created (&lt;option /&gt;) and the initial select object on the page.</td>
+                        </tr>
+                        <tr>
+                            <td>onItemsSync</td>
+                            <td>
+                                $(&#39;#element&#39;).sexyselect({onItemsSync: function (initElem) { ... } );</td>
+                            <td>
+                                This event is fired after all the items are syncronized. Syncronization happens 
+                                through most events, created, deleted, sorted and moved returns the initial 
+                                element</td>
+                        </tr>
+                        <tr>
+                            <td>onItemSelected</td>
+                            <td>
+                                $(&#39;#element&#39;).sexyseelct({onItemSelected:function(element,options){<br />
+&nbsp; alert(element.val());<br />
+                                });</td>
+                            <td>
+                                This event is fired after the item is selected, the event passes in the element 
+                                selected (input type=checkbox|radio) and also an array of the options in the 
+                                array.<br />
+                                To parse the options use the syntax similar to $.each(options,function(idx,i){ 
+                                alert(i.val()); });</td>
+                        </tr>
+                        <tr>
+                            <td>onitemcreating</td>
+                            <td style="width:33%;">
+                                $(&#39;#element&#39;).sexyselect({onitemcreating: function(object, EventArgs) { return 
+                                EventArgs });</td>
+                            <td>
+                                This function is fired before an item is created. This gives you a first chance 
+                                to validate the text that will be added to the list. This event passes in both 
+                                the input text object (validate with object.val()) and also Event Arguments. 
+                                These Event arguments are expected to be returned an contain 3 parameters as 
+                                below.<br />
+                                <strong>EventArgs</strong>
+                                <br />
+                                EventArgs.create : boolean, default true. Changing this to false on return will 
+                                cancel the creation of the item.<br />
+                                EventArgs.errorText: string, default &#39;&#39;. Set the error text to be displayed if 
+                                the EventArgs.create is set to false.<br />
+                                EventArgs.timeOut: int, default: 2500. The timeout for the error window to hide 
+                                itself.
+                                <br />
+                                <br />
+                                Passing back no event Args will add the item regardless of your validation 
+                                efforts, additionally blank errorText will also skip showing the error message.
+                                
+                                
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <h4 id="r1">Requirementss</h4>
+        The SexySelect widget requires the following jQuery items:
+        <ul>
+            <li>jQuery 1.4+</li>
+            <li>jQuery.UI 1.8.6+</li>
+            <li>ui.sexyselect.0.3.js</li>
+        </ul>
+        <h4 id="r4">Change Log</h4>
+        <strong>Changes in v0.3</strong>
+        <ul>
+            <li>
+                Renamed option : <i>_debugShowOriginal</i> to <u>allowDebug</u>. This option also will show alert messages on errors through custom events.
+            </li>
+            <li>
+                Added option : <u>nooptionstext</u> which allows for you to change the text when no options are added to the list, default is 'no options added'
+            </li>
+            <li>
+                Added event : <u>onItemSelect</u> : runs a custom event when an option is selected, returns the element created and a collection of all the options in the list. Runs after the click event is handled
+            </li>
+            <li>
+                Added event : <u>onitemcreating</u> : runs a custom event before the item is created. This allows for custom validation. This event passes in the input text object and also the EventArgs, this event expects the EventArgs to be passed back. See the <b>Events Tab for more info</b>
+            </li>
+            <li>
+                Added method : <u>showError</u> : Shows the error bar with custom text that you pass in. Expects the text to display and the timeout to slide up. See the methods tab
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

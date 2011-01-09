@@ -1,0 +1,55 @@
+<% form_for(@user) do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div style="float:left;">
+  <div class="field">
+    <label for="user_username">Username:</label><br />
+    <%= f.text_field :username %><br />
+  </div>
+
+  <div class="field">
+    <label for="user_first_name">First Name:</label><br />
+    <%= f.text_field :first_name %><br />
+  </div>
+
+  <div class="field">
+    <label for="user_last_name">Last Name:</label><br />
+    <%= f.text_field :last_name %><br/>
+  </div>
+</div>
+<div style="float:left;margin-left:10px;">
+  <div class="field">
+    <label for="user_password">Password:</label><br />
+    <%= f.password_field :password %><br/>
+  </div>
+
+  <div class="field">
+    <label for="user_password_confirmation">Password Confirmation:</label><br />
+    <%= f.password_field :password_confirmation %><br />
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :administrator %><br />
+    <%= f.check_box :administrator %>
+  </div>
+</div>
+<div style="clear:both;"></div>
+  <div class="actions">
+    <%= f.submit "Register", :class=>"button inline-left ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" %>
+  </div>
+<% end %>

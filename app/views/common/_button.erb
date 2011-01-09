@@ -1,0 +1,12 @@
+<%
+# Initialization
+method ||= :get
+custom_class ||= ""
+confirm ||= nil
+%>
+
+<%= button_to title, link, :method=>method,
+                           :class=>"#{custom_class} button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only",
+                           :confirm=>confirm
+%>
+

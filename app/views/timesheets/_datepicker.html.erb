@@ -1,0 +1,59 @@
+<h1 class="dialog_header">Select Timesheet Start Date</h1>
+<style type="text/css">
+/* located in demo.css and creates a little calendar icon
+ * instead of a text link for "Choose date"
+ */
+a.dp-choose-date {
+	float: left;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	margin: 5px 3px 0;
+	display: block;
+	text-indent: -2000px;
+	overflow: hidden;
+	background: url(../../images/calendar.png) no-repeat;
+}
+a.dp-choose-date.dp-disabled {
+	background-position: 0 -20px;
+	cursor: default;
+}
+/* makes the input field shorter once the date picker code
+ * has run (to allow space for the calendar icon
+ */
+input.dp-applied {
+	width: 140px;
+	float: left;
+}
+</style>
+<div style="width:400px;">
+
+    <div style="float:left;font-size:10pt;padding-right:10px;">Select Starting Date:</div><input type="text" id="start" readonly="readonly"/>
+
+</div>
+<div style="clear:both"></div>
+
+<script type="text/javascript">
+jQuery(function()
+{
+    Date.format = 'mm/dd/yyyy'
+    jQuery('#start').datePicker({
+        startDate: "01/01/2000",
+        selectWeek:true,
+        closeOnSelect:false
+    });
+});
+function convertDate(str1)
+{
+    var date_parts = str1.split('/');
+    return date_parts[2] + "/" + date_parts[0] + "/" + date_parts[1];
+}
+//alert(convertDate("12/5/2010"))
+</script>
+
+<br/>
+<hr/>
+
+<%=render :partial=>"common/remote_button", :locals=>{:label=>"Continue",
+          :remote_function=>remote_function(:url=>new_timesheet_path, :method=>:get, :with=>"'start=' + convertDate(jQuery('#start').val())")}%>
+<%=render :partial=>"common/close_button"%>

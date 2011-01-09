@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  DateWorked: 2010-11-27
+  BeginTimeInMinutes: 
+  EndTimeInMinutes: 
+  TotalTimeInMinutes: 
+
+two:
+  DateWorked: 2010-11-27
+  BeginTimeInMinutes: 
+  EndTimeInMinutes: 
+  TotalTimeInMinutes: 

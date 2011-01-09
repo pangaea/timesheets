@@ -1,0 +1,42 @@
+<h1 class="page_header">My Timesheets</h1>
+
+<%=render :partial=>"common/remote_button", :locals=>{:label=>"New Timesheet",
+          :remote_function=>remote_function(:url=>datepicker_timesheets_path, :method=>:get)}%>
+<div style="clear:both"></div>
+<div id="timesheets">
+
+<%
+@timesheets.each do |timesheet|
+    days = timesheet.timesheet_days
+    if days.length > 0
+%>
+    <div class="tr">
+        <!-- Timecard Display -->
+
+        <div class="td">
+            <span class="title">
+            <%=convert_to_us_date_string(days[0].date_worked)%>
+            &nbsp;-&nbsp;
+            <%=convert_to_us_date_string(days[days.length-1].date_worked)%>
+            </span>
+            <span class="status">
+                <%=render :partial=>"timesheet_status", :locals=>{:status=>timesheet.status}%>
+            </span>
+        </div>
+        <div class="td">
+            <%#= button_to "Edit", edit_timesheet_path(timesheet), :method=>:get, :class=>"button inline-left" %>
+            <%=render :partial=>"common/remote_button", :locals=>{:label=>"View",
+                      :remote_function=>remote_function(:url=>timesheet_path(timesheet), :method=>:get)}%>
+
+            <%if timesheet.status != 2%>
+            <%=render :partial=>"common/button", :locals=>{:title=>"Delete", :link=>timesheet_path(timesheet), :custom_class=>"inline-left",
+                        :method=>:delete, :confirm=>"Are you sure you want to delete this timesheet?"}%>
+            <%end%>
+        </div>
+
+        <!-- Timecard Display -->
+    </div>
+    <div style="clear:left;"></div>
+    <% end %>
+<% end %>
+</div>

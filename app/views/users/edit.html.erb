@@ -1,0 +1,13 @@
+<h1 class="page_header">Edit Account</h1>
+
+<fieldset>
+  <legend>Edit Account</legend>
+
+  <%= render :partial => 'form' %>
+
+</fieldset>
+
+<br />
+
+<%=render :partial=>"common/button", :locals=>{:title=>"Unregister", :link=>user_path(@user),
+          :method=>:delete, :confirm=>"Are you sure you want to unregister your account?"}%>

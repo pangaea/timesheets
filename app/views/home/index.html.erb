@@ -1,0 +1,8 @@
+<span style="font:12pt Verdana;">
+    Hello <%=@current_user.username%>:
+</span>
+<br/><br/>
+<%#= link_to 'Users', users_path %>
+<%#= button_to 'View Timesheets', timesheets_path, :method=>:get, :class=>"button" %>
+<%=render :partial=>"common/button", :locals=>{:title=>"View My Timesheets", :link=>timesheets_path}%>
+<%#= link_to 'Admin Timesheets', admin_timesheets_path %>
