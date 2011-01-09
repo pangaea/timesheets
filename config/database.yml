@@ -21,11 +21,11 @@ test:
 
 production:
   adapter: mysql
-  #encoding: utf8
+  encoding: utf8
   reconnect: false
   database: timesheets_production
   pool: 5
-  username: thevirtu_root
-  password: eshare
+  username: root
+  password: 
   host: localhost
   
