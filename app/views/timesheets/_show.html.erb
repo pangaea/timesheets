@@ -10,7 +10,7 @@ Current Status: <%=status_display(@timesheet.status)%>
 <%#= button_to 'Edit', edit_timesheet_path(@timesheet), :method=>:get, :class=>"button inline-left" %>
 <%#=render :partial=>"common/button", :locals=>{:title=>"Edit", :link=>edit_timesheet_path(@timesheet), :custom_class=>"inline-left"}%>
 <%=render :partial=>"common/remote_button", :locals=>{:label=>"Edit",
-          :remote_function=>remote_function(:url=>edit_timesheet_path(@timesheet), :method=>:get)}%>
+          :remote_function=>remote_function(:url=>edit_timesheet_path(@timesheet), :method=>:get, :with=>"r=#{rand(10000)}")}%>
 
 <%end%>
 <%#= button_to 'Back to Timesheets', timesheets_path, :method=>:get, :class=>"button inline-left" %>
