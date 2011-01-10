@@ -7,7 +7,7 @@
 <div class="timecard">
 
     <div class="tr">
-        <div class="td" style="width:175px;border-left:1px dotted #000000;">Date</div>
+        <div class="td" style="width:185px;border-left:1px dotted #000000;">Date</div>
         <div class="td" style="width:300px;">Location</div>
         <div class="td">Start Time</div>
         <div class="td">End Time</div>
@@ -17,7 +17,7 @@
 
     <% @timesheet.timesheet_days.each do |day| %>
     <div class="tr">
-        <div class="td" style="border-left:1px dotted #000000;width:175px;">
+        <div class="td" style="border-left:1px dotted #000000;width:185px;">
             <%=convert_to_us_date_string(day.date_worked)%>
             <strong>(<%=write_weekday(day.date_worked)%>)</strong>
         </div>
