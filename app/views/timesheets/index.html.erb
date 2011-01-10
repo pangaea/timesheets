@@ -26,7 +26,7 @@
         <div class="td">
             <%#= button_to "Edit", edit_timesheet_path(timesheet), :method=>:get, :class=>"button inline-left" %>
             <%=render :partial=>"common/remote_button", :locals=>{:label=>"View",
-                      :remote_function=>remote_function(:url=>timesheet_path(timesheet), :method=>:get)}%>
+                      :remote_function=>remote_function(:url=>timesheet_path(timesheet), :method=>:get, :with=>"r=#{rand(10000)}")}%>
 
             <%if timesheet.status != 2%>
             <%=render :partial=>"common/button", :locals=>{:title=>"Delete", :link=>timesheet_path(timesheet), :custom_class=>"inline-left",

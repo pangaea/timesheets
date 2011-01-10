@@ -49,11 +49,8 @@
             <%=render :partial=>"/timesheets/timesheet_status", :locals=>{:status=>timesheet.status}%>
         </div>
         <div class="td">
-            <%#= button_to "Edit", edit_timesheet_path(timesheet), :method=>:get, :class=>"button inline-left" %>
-            <%#= button_to "View", timesheet_path(timesheet), :method=>:get, :class=>"button inline-left" %>
-            <%#=render :partial=>"common/button", :locals=>{:title=>"View", :link=>timesheet_path(timesheet), :custom_class=>"inline-left"}%>            
             <%=render :partial=>"common/remote_button", :locals=>{:label=>"Change Status",
-                      :remote_function=>remote_function(:url=>admin_timesheet_path(timesheet), :method=>:get)}%>
+                      :remote_function=>remote_function(:url=>admin_timesheet_path(timesheet), :method=>:get, :with=>"r=#{rand(10000)}")}%>
 
         <%if timesheet.status != 2%>
             <%#= button_to "Delete", timesheet_path(timesheet), :method=>:delete, :class=>"button inline-left",
