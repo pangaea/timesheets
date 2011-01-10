@@ -70,7 +70,6 @@ module TimesheetsHelper
     end
 
     def convert_to_hours_string(mins)
-		(mins.to_f/60.00)
-		#sprintf('%.2f', (mins.to_f/60.00))
+		sprintf('%.2f', (mins.to_f/60.00))
     end
 end
