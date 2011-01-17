@@ -13,7 +13,8 @@
     <%= stylesheet_link_tag "jquery/css/base2.css",
                             "jquery/css/jquery-ui.css",
                             "jquery/css/redmond/jquery-ui-1.7.2.custom.css",
-                            "jquery/timeentry/jquery.timeentry.css",
+                            #"jquery/timeentry/jquery.timeentry.css",
+                            "/timepickr/ui.timepickr.css",
                             "jquery/datePicker.css",
                             "/sexyselect/css/shThemeDefault.css",
                             "/fancybox/jquery.fancybox-1.3.4.css",
@@ -25,7 +26,11 @@
                                "application.js",
                                "jquery/jquery-ui-1.8.6.custom.min.js",
                                "jquery/jquery.alphanumeric.pack.js",
-                               "jquery/timeentry/jquery.timeentry.js",
+                               #"jquery/timeentry/jquery.timeentry.js",
+                               "/timepickr/jquery.utils.js",
+                               "/timepickr/jquery.strings.js",
+                               "/timepickr/jquery.anchorHandler.js",
+                               "/timepickr/ui.timepickr.js",
                                "jquery/jquery.datePicker.js",
                                "/sexyselect/js/ui.sexyselect.0.4.js",
                                "jquery/date.js",
@@ -87,7 +92,7 @@
 
 </body>
 <script type="text/javascript">
-$(function(){
+jQuery(function(){
     jQuery('#modal_dialog_link').fancybox({
         autoScale: true,
         overlayShow: true,

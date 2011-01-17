@@ -55,7 +55,7 @@ jQuery(function(){
     // Initialize 'time' fields
     jQuery("input[id$=begin_time_in_minutes], input[id$=end_time_in_minutes]").each(function(){
         var fld = jQuery(this).next();
-        if(fld.attr("class")=="time" || fld.attr("class")=="hasTimeEntry"){
+        if(fld.attr("class")=="time"){//} || fld.attr("class")=="hasTimeEntry"){
             if(jQuery(this).val().length>0) fld.val(convertToTimeString(parseInt(jQuery(this).val())));
         }
     });
@@ -67,13 +67,19 @@ jQuery(function(){
         }
     });
     // Initialize controls
-    jQuery(".time").timeEntry();
+    //jQuery(".time").timeEntry();
+    jQuery('.time').timepickr({
+        convention:12,
+        trigger:"click",
+        updateLive:false
+    });
     jQuery('.total').numeric({allow:"."});
 })
 function buildForm(){
     jQuery("input[id$=begin_time_in_minutes], input[id$=end_time_in_minutes]").each(function(){
-        var fld = jQuery(this).next().children("input:first-child");
-        if(fld.attr("class")=="time hasTimeEntry"){
+        var fld = jQuery(this).next();//.children("input:first-child");
+        //if(fld.attr("class")=="time hasTimeEntry"){
+        if(fld.hasClass("time")){
             if(fld.val().length>0){
                 jQuery(this).val(convertFromTimeString(fld.val()));
             }

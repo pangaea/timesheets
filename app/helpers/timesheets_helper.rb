@@ -37,17 +37,17 @@ module TimesheetsHelper
 
     def convert_to_time_string(mins)
         timestr = []
-        meridian = "AM"
+        meridian = " am"
         time_in_mins = mins
         if mins >= 60
             hrs = time_in_mins / 60
             hrs = hrs.floor
 
             if hrs > 12
-                meridian = "PM"
+                meridian = " pm"
                 hrs -= 12
             elsif hrs == 12
-                meridian = "PM"
+                meridian = " pm"
             end
 
             if hrs <= 9

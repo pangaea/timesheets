@@ -4,17 +4,17 @@
 
 function convertToTimeString(mins){
     var timestr = [];
-    var meridian = "AM";
+    var meridian = " am";
     var time_in_mins = mins;
     if(mins>=60){
         var hrs = time_in_mins / 60;
         hrs = Math.floor(hrs);
         if(hrs>12){
-            meridian = "PM";
+            meridian = " pm";
             hrs -= 12;
         }
         else if(hrs==12){
-            meridian = "PM";
+            meridian = " am";
         }
         if(hrs<=9) timestr.push("0"+hrs)
         else timestr.push(parseInt(hrs));
@@ -55,7 +55,7 @@ function convertFromHoursString(hours_str){
  */
 
 function crackTimeString(time_str){
-    var exp = /^(0?[1-9]|1[0-2]):([0-5][0-9])([AaPp][Mm])?$/i;
+    var exp = /^(0?[1-9]|1[0-2]):([0-5][0-9])(.*)([AaPp][Mm])?$/i;
     if( time_str.match(exp) ){
         return{ hours:   parseInt(RegExp.$1, 10),
                 minutes: parseInt(RegExp.$2, 10),
