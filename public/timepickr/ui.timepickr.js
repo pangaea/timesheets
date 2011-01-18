@@ -167,7 +167,7 @@ $.ui.plugin.add('timepickr', 'core', {
         var menu = ui._dom.menu;
         var pos  = ui.element.position();
 
-        menu.insertAfter(ui.element).css('left', pos.left-225);
+        menu.insertAfter(ui.element).css('left', pos.left-255);
 
         if (!$.boxModel) { // IE alignement fix
             menu.css('margin-top', ui.element.height() + 8);
