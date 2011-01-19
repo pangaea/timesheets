@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.administrator = true  # Force administrator flag on
     if @user.save
       @current_session = @user.sessions.create
       session[:id] = @current_session.id
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
     #@user = User.find(@user)
     #@user = User.find(params[:id])
     @user = @current_user
+    params[:user][:administrator] = 1  # Force administrator flag on
     if @user.update_attributes(params[:user])
       flash[:notice] = "Your account has been updated"
       redirect_to(root_url)
