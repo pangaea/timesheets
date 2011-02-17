@@ -6,7 +6,7 @@ development:
   database: timesheets_development
   pool: 5
   username: root
-  password: 
+  password: mysql
   host: localhost
 
 test:
@@ -16,7 +16,7 @@ test:
   database: timesheets_test
   pool: 5
   username: root
-  password: 
+  password: mysql
   host: localhost
 
 production:
